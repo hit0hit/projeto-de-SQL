@@ -1,0 +1,31 @@
+CREATE TABLE pessoa (
+  id INTEGER PRIMARY KEY,
+  nome VARCHAR(100),
+  RG VARCHAR(100),
+  CPF VARCHAR(100),
+  endereco varchar(100),
+  telefone varchar(100)
+);
+
+CREATE TABLE carro(
+marca integer,
+modelo varchar(100),
+fabricante varchar(100),
+ano int,
+renavan int,
+placa varchar(100),
+FOREIGN KEY(marca) REFERENCES pessoa(id)
+);
+
+
+INSERT INTO pessoa(id,nome,rg,cpf,endereco,telefone) VALUES (1, 'joji', 673728 , 13897390281, 'rua val Q40 L1' , '+55 (62) 995904356'),(2, 'kaname kam', 947294 , 87487392083, 'rua vaq Q03 L2' , '+55 (62) 953789873');
+
+INSERT INTO carro(marca, modelo,fabricante,ano,renavan,placa) VALUES (1,'mustang','ford',2020,00873927653,'GOY098'),(1,'mustang','ford',2021,02387295202,'IP0K87');
+
+
+
+SELECT* FROM pessoa ORDER BY nome;
+
+SELECT * FROM pessoa WHERE nome LIKE 'k%';
+
+SELECT * FROM pessoa UNION SELECT * FROM carro ORDER BY nome;

@@ -1,0 +1,51 @@
+CREATE TABLE diretor (
+  id INTEGER PRIMARY KEY,
+  nome VARCHAR(100)
+);
+
+CREATE TABLE filmes (
+  id INTEGER PRIMARY KEY,
+  nome varchar(100),
+  ano int,
+  duracao varchar(50),
+  id_diretor integer,
+  foreign key (id_diretor) references diretor(id)
+);
+
+
+
+
+INSERT INTO diretor(id,nome) VALUES (70,'Charlie Chaplin'),(81,'Judd Apatow'),(92,'Judd Apatow'),(93,'Quentin Tarantino');
+
+
+INSERT INTO filmes(id,nome,ano,duracao,id_diretor) 
+VALUES (11,'50 Tons de Cinza',2015,'2:14',92),
+(12,'Se Beber, Não Case!',2009,'1:44','nulo'),
+(13,'O Virgem de 40 Anos',2005,'1:56',81),
+(14,'Tempos Modernos',1936,'1:27',70),
+(15,'O Grande Ditador',1940,'2:05',70);
+
+
+
+
+select * from filmes cross join diretor;
+
+select * from filmes f inner join diretor d on f.id_diretor = d.id;
+
+select * from filmes f left join diretor d on f.id_diretor = d.id;
+
+select * from filmes right join diretor;
+
+select * from filme f full join diretor d on f.id_diretor = d.id;
+
+select * from filmes natural join diretor;
+
+select * from filmes, diretor;
+
+SELECT COUNT(*) FROM filmes where ano = '2006';
+
+SELECT COUNT(*), ano FROM filmes 
+GROUP BY ano>1;
+
+SELECT COUNT(*), id_diretor FROM filmes
+GROUP BY id_diretor;

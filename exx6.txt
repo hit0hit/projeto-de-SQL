@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(void){
+
+
+int h1,m1;
+struct ficha_aluno
+{
+    char nome[40],nome1[40],nome2[40];
+    int idade,idade1,idade2;
+    char genero[0],genero1[0],genero2[0];
+};
+system("cls");
+int vetor_idade[3];
+
+struct ficha_aluno Aluno;
+printf("digite o nome do aluno 1 ==> ");
+scanf(" %s",Aluno.nome);
+printf("digite a idade do aluno ==> ");
+scanf(" %d", &Aluno.idade);
+vetor_idade[0]=Aluno.idade;
+printf("digite o genero do aluno como m= para mulher h= para homem ==> ");
+scanf(" %s",Aluno.genero);
+
+
+system("cls");
+printf("digite o nome do aluno 2 ==> ");
+scanf(" %s",Aluno.nome1);
+printf("digite a idade do aluno ==> ");
+scanf(" %d", &Aluno.idade1);
+vetor_idade[1]=Aluno.idade1;
+printf("digite o genero do aluno como m = para mulher h = para homem ==> ");
+scanf(" %s",Aluno.genero1);
+
+
+system("cls");
+printf("digite o nome do aluno 3 ==> ");
+scanf(" %s",Aluno.nome2);
+printf("digite a idade do aluno ==> ");
+scanf(" %d", &Aluno.idade2);
+vetor_idade[2]=Aluno.idade2;
+printf("digite o genero do aluno como m = digite 1 h = digite 2 ==> ");
+scanf(" %s",Aluno.genero2);
+
+printf("\n");
+system("cls");
+
+printf("-------------relarorio-------------");
+printf("\nnome da  pessoa 1 ==> %s",Aluno.nome);
+printf("\nidade da pessoa 1 ==> %d" , Aluno.idade);
+printf("\ngenero da pessoa 1 ==> %s", Aluno.genero);
+
+printf("\n\nnome da  pessoa 2 ==> %s",Aluno.nome1);
+printf("\nidade da pessoa 2 ==> %d" , Aluno.idade1);
+printf("\ngenero da pessoa 2 ==> %s", Aluno.genero1);
+
+printf("\n\nnome da  pessoa 3 ==> %s",Aluno.nome2);
+printf("\nidade da pessoa 3 ==> %d" , Aluno.idade2);
+printf("\ngenero da pessoa 3 ==> %s", Aluno.genero2);
+printf("\n");
+system("pause");
+system("cls");
+int media_idade = (Aluno.idade+ Aluno.idade1+ Aluno.idade2)/3;
+
+printf("\nmedia de idade e==> %d",media_idade);
+int maior=0,menor;
+for (int i=0; i<3; i++) {
+		     
+		      if (vetor_idade[i] > maior){
+		         maior = vetor_idade[i];
+              }
+		    }
+printf("\nmaior idade==> %d", maior);
+            for (int i=0; i<3; i++) {
+		     
+		      if (vetor_idade[i] < menor){
+		         menor = vetor_idade[i];
+              }
+            }
+
+printf("\nmenor idade==> %d", menor);
+
+float porcentagem_h = 3*(h1/100);
+float porcentagem_m = 3*(m1/100);
+
+printf("\nporcentagem de homem e de ==> %.2f ", porcentagem_h);
+printf("\nporcentagem de mulher e de ==> %.2f", porcentagem_m);
+
+
+    return(0);
+}

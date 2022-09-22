@@ -1,0 +1,27 @@
+create table pet (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome VARCHAR(100),
+  possui_raca BOOLEAN
+);
+
+
+
+INSERT INTO pet (nome, possui_raca) VALUES
+('Lulu', TRUE),
+('Thor', TRUE),
+('Rex', FALSE),
+('Pretinho', NULL);
+
+
+
+SELECT * FROM pet WHERE possui_raca is NULL;
+is pra selecionar so os null
+is not selecionar sem os null
+
+
+SELECT * FROM pet WHERE possui_raca=0;
+
+
+SELECT * FROM pet WHERE possui_raca is not NULL;
+
+SELECT * FROM pet WHERE possui_raca is NULL;

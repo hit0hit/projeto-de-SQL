@@ -1,0 +1,49 @@
+CREATE TABLE contato (
+	id SERIAL PRIMARY KEY, 
+	nome VARCHAR(100) NOT NULL,
+	telefone BIGINT,
+	nota DECIMAL,
+	cidade VARCHAR(100),
+	CHECK(nota>=0 AND nota<=10)
+);
+
+INSERT INTO contato (nome, telefone, nota, cidade) VALUES 
+('Fernanda', 62111111111, 7, 'Goiania'),
+('Bruna', 62222222222, 10, 'Aparecida'),
+('Ana', null, 8, 'Goiania'),
+('Camila', 62444444444, 9.5, 'Goiania'),
+('Paula', 62555555555, 6.5, 'Aparecida');
+
+
+
+
+
+
+SELECT * FROM contato WHERE nota>8 OR nome like 'A%';
+
+
+
+
+SELECT * FROM contato WHERE nota>8 
+UNION
+SELECT * FROM contato WHERE nome like 'A%';
+
+
+
+
+SELECT * FROM contato WHERE nota>8 OR nome IN (
+SELECT nome FROM contato WHERE nome like 'A%');
+
+
+
+
+
+DELETE FROM contato WHERE id IN 
+(SELECT id FROM contato WHERE nota IN (SELECT nota FROM contato WHERE nota < 8)
+INTERSECT 
+SELECT id FROM contato WHERE nome like 'P%');
+
+
+
+
+c) 3

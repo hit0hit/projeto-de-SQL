@@ -1,0 +1,58 @@
+CREATE TABLE pessoa (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome VARCHAR(100),
+  sexo VARCHAR(100),
+  cidade VARCHAR(100)
+);
+
+
+
+INSERT INTO pessoa(id, nome , sexo , cidade) 
+VALUES('6','Fábio', 'M','Nerópolis');
+
+
+
+SELECT COUNT(*) FROM pessoa;
+
+
+
+SELECT COUNT(*) FROM pessoa WHERE sexo;
+
+
+
+SELECT sexo FROM pessoa;
+
+
+
+SELECT COUNT(*), cidade FROM pessoa 
+GROUP BY cidade;
+
+
+
+SELECT COUNT(*), cidade FROM pessoa 
+GROUP BY cidade HAVING COUNT(*) > 1;
+
+
+
+
+SELECT COUNT(*), cidade,sexo='F' FROM pessoa 
+GROUP BY sexo HAVING COUNT(*) > 1;
+
+
+
+
+CREATE TABLE cidade (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome VARCHAR(100)
+);
+
+CREATE TABLE pessoa (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+  id_cidade int,
+  foreign key (id_cidade) references cidade(id)
+);
+
+
+
+SELECT MAX(cidade), genero FROM id GROUP BY nome;
